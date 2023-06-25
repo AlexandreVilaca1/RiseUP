@@ -13,14 +13,6 @@ class DonationPage extends StatefulWidget {
   State<DonationPage> createState() => _DonationPageState();
 }
 
-void _abrirPaginaDoacao(BuildContext context) {
-  Navigator.of(context).push(
-    MaterialPageRoute(builder: (_) {
-      return const DonationPage();
-    }),
-  );
-}
-
 class _DonationPageState extends State<DonationPage> {
   int selectedValueIndex = -1;
   int? groupValue = 0;
@@ -603,7 +595,7 @@ class _DonationPageState extends State<DonationPage> {
                     }
                   }
                 } else if (selectedValueIndex == 0 && _isChecked == true) {
-                  const amount = 5;
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -611,7 +603,7 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 1 && _isChecked == true) {
-                  const amount = 10;
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -619,7 +611,7 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 2 && _isChecked == true) {
-                  const amount = 25;
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -627,7 +619,7 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 3 && _isChecked == true) {
-                  const amount = 50;
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -659,7 +651,6 @@ class _DonationPageState extends State<DonationPage> {
             ),
           ),
 
-          // fim do Botao "Donate"
         ],
       ),
     );

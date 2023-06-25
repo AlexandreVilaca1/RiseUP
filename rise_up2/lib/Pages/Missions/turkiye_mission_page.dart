@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../Data/list_missions.dart';
+import '../../Data/fetch_mission_data.dart';
 import '../../models/missions.dart';
 import '../../widgets/ImagesWidget/images.dart';
 import '../../widgets/TextWidgets/description_text.dart';
@@ -11,7 +11,6 @@ import 'main_page.dart';
 
 class TurkieMissionPage extends StatefulWidget {
   const TurkieMissionPage({Key? key}) : super(key: key);
-  
 
   @override
   State<TurkieMissionPage> createState() => _TurkieMissionPage();
@@ -42,43 +41,44 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
           }
 
           List<Missions> missions = snapshot.data!;
-        return Scaffold(
-        appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          color: Colors.black,
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MainPage(),
+          return Scaffold(
+            appBar: AppBar(
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new),
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainPage(),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-        
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Turkye Mission',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
-      
-      body: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-           Images(imagePath: 'assets/images/turkiye_earthquake.png'),
-           MissionTitleText(text: 'Turkiye Mission'),
-           DescriptionTextWidget(missionId: 1, 
-                  missionList: json,),
-           TypeDonationTitle(text: 'How you would like to donate?'),
-           SegmentedControlApp(),
-        ],
+              backgroundColor: Colors.white,
+              title: const Text(
+                'Turkye Mission',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            body: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Images(imagePath: 'assets/images/turkiye_earthquake.png'),
+                  MissionTitleText(text: 'Turkiye Mission'),
+                  DescriptionTextWidget(
+                    missionId: 1,
+                    missionList: json,
+                  ),
+                  TypeDonationTitle(text: 'How you would like to donate?'),
+                  SegmentedControlApp(),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
-        }
-      )
-      );
   }
 }

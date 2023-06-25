@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rise_up2/Data/list_missions.dart';
+import 'package:rise_up2/Data/fetch_mission_data.dart';
 import 'package:rise_up2/Pages/Navegation_Bar/nav_bar.dart';
 import '../../models/missions.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
@@ -60,35 +60,35 @@ class _MainPageState extends State<MainPage> {
               itemBuilder: (BuildContext context, int index) {
                 Missions mission = missions[index];
                 DateFormat dateFormat = DateFormat.yMd(); // Use the desired date format
-                String formattedDate = dateFormat.format(mission.date_mission);
+                String formattedDate = dateFormat.format(mission.dateMission);
                 return GestureDetector(
                   onTap: () {
-                    if (mission.id_mission == 1) {
+                    if (mission.idMission == 1) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TurkieMissionPage(),
+                          builder: (context) => const TurkieMissionPage(),
                         ),
                       );
-                    } else if (mission.id_mission == 2) {
+                    } else if (mission.idMission == 2) {
                       
-                    } else if (mission.id_mission == 3) {
-                      // Navigate to a different page for mission ID 3
+                    } else if (mission.idMission == 3) {
+                      
                     }
-                    // Add more conditions for other mission IDs
+                    
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 2),
                     child: ListTile(
                       leading: Image.asset(
-                        missionImagePaths[mission.id_mission] ??
+                        missionImagePaths[mission.idMission] ??
                             'assets/images/turkiye_earthquake.png',
                         width: 70,
                         height: 80,
                         fit: BoxFit.cover,
                       ),
                       title: Text(
-                        mission.mission_name,
+                        mission.missionName,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,

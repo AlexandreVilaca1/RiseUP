@@ -30,7 +30,7 @@ class _EditProfileState extends State<EditProfile> {
         ),
         backgroundColor: Colors.white,
         title: const Text(
-          'Perfil',
+          'Profile',
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -83,8 +83,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
               const SizedBox(height: 80),
-              buildTextField("First Name", "Michael", false),
-              buildTextField("Last Name", "Johnson", false),
+              buildTextField("UserName", "Michael", false),
               buildTextField("Email", "michaeljhonson@gmail.com", false),
               const SizedBox(height: 40),
               Row(

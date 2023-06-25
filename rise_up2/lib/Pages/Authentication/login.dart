@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up2/Pages/Authentication/recover_passord.dart';
 import 'package:rise_up2/Pages/Authentication/request_login.dart';
-import '../Missions/main_page.dart';
+import 'package:rise_up2/Pages/Donations/monetary_donation.dart';
 
 // ignore: use_key_in_widget_constructors
 class LoginPage extends StatelessWidget {
@@ -132,7 +132,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MainPage(),
+                        builder: (context) => const DonationPage(),
                       ),
                     );
                   },

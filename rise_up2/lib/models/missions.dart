@@ -1,21 +1,21 @@
 class Missions {
-  int id_mission;
-  String mission_name;
-  String description_mission;
-  DateTime date_mission;
+  int idMission;
+  String missionName;
+  String descriptionMission;
+  DateTime dateMission;
   String locality;
-  String state_mission;
-  int financed_amount;
+  String stateMission;
+  int financedAmount;
 
 
   Missions(
-      this.id_mission,
-      this.mission_name,
-      this.description_mission,
-      this.date_mission,
+      this.idMission,
+      this.missionName,
+      this.descriptionMission,
+      this.dateMission,
       this.locality,
-      this.state_mission,
-      this.financed_amount,);
+      this.stateMission,
+      this.financedAmount,);
 
   factory Missions.fromJson(Map<String, dynamic> json) {
     return Missions(

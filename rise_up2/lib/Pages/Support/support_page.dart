@@ -9,18 +9,9 @@ class SupportPage extends StatefulWidget {
   State<SupportPage> createState() => _SupportPage();
 }
 
-void _abrirPaginaDoacao(BuildContext context) {
-  Navigator.of(context).push(
-    MaterialPageRoute(builder: (_) {
-      return SupportPage();
-    }),
-  );
-}
-
 class _SupportPage extends State<SupportPage> {
   int selectedValueIndex = -1;
   int? groupValue = 0;
-  bool _isChecked = false;
   final amountController = TextEditingController();
 
   @override

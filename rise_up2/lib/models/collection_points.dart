@@ -1,27 +1,27 @@
 class CollectionPoints {
-  int id_collection_point;
-  String collection_point_name;
-  String postal_code;
+  int idCollectionPoint;
+  String collectionPointName;
+  String postalCode;
   String district;
   String city;
   String country;
   String street;
-  int number_door;
-  DateTime inicial_hour;
-  DateTime end_hour;
-  String week_days;
+  int numberDoor;
+  DateTime inicialHour;
+  DateTime endHour;
+  String weekDays;
 
   CollectionPoints(
-    this.id_collection_point,
-    this.collection_point_name,
-    this.postal_code,
+    this.idCollectionPoint,
+    this.collectionPointName,
+    this.postalCode,
     this.district,
     this.city,
     this.country,
     this.street,
-    this.number_door,
-    this.inicial_hour,
-    this.end_hour,
-    this.week_days,
+    this.numberDoor,
+    this.inicialHour,
+    this.endHour,
+    this.weekDays,
   );
 }

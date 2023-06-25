@@ -31,14 +31,14 @@ class DescriptionTextWidget extends StatelessWidget {
         }
 
         List<Missions> missions = snapshot.data!;
-        Missions mission = missions.firstWhere((mission) => mission.id_mission == missionId);
+        Missions mission = missions.firstWhere((mission) => mission.idMission == missionId);
 
         return Container(
           alignment: Alignment.centerLeft,
           margin: const EdgeInsets.only(top: 0, left: 20, right: 20),
           padding: const EdgeInsets.only(bottom: 10),
           child: Text(
-            mission.description_mission,
+            mission.descriptionMission,
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.normal,
