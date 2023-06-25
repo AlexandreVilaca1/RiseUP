@@ -14,7 +14,12 @@ namespace Rise_Up_API.Modules
         public string locality { get; set; }
         public string state_mission { get; set; }
         public int financed_amount { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<Missions_Collection_Points>? missions_collection_points { get; }
+        [JsonIgnore]
+        public virtual ICollection<Monetary_Donations>? monetary_donations { get; }
+        [JsonIgnore]
+        public virtual ICollection<Association_Mission>? association_mission { get; }
     }
 }

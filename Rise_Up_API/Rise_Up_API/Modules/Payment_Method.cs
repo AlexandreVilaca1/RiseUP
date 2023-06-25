@@ -4,15 +4,12 @@ using System.Text.Json.Serialization;
 
 namespace Rise_Up_API.Modules
 {
-    public class Users
+    public class Payment_Method
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key] public int id_user {get; set;}
-        public string user_name_ { get; set;}
-        public string e_mail { get; set;}
-        public string pass_word { get; set;}
+        [Key] public int id_payment_method { get; set; }
+        public string payment_method_name { get; set; }
         [JsonIgnore]
         public virtual ICollection<Monetary_Donations>? monetary_donations { get; }
-
     }
 }

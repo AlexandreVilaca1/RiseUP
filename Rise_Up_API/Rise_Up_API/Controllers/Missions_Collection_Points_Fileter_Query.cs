@@ -34,7 +34,6 @@ namespace Rise_Up_API.Controllers
 
 
                             };
-
                 return Ok(query.ToList());
 
             }

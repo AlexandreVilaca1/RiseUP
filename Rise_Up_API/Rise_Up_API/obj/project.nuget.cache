@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "14qj8g5CAwPMjg56PMBKSN5mvE6c9HqVS42XFmWBnb5rUj3P2ZGPsaCQlCSE3lrM5GXTkn0MugIum2QXHD8uow==",
+  "dgSpecHash": "1H+yQOlPoolcdtiDxAcIHEaPVCx0/FRqKR225q9LA0ZIB0VedvOvxzmhyAE8dz5SWX5iwiLz3ipCAhzfra84tw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexandre\\Desktop\\Rise_Up_API\\Rise_Up_API\\Rise_Up_API\\Rise_Up_API.csproj",
+  "projectFilePath": "C:\\Users\\alexandre\\Desktop\\Rise_Up\\Rise_Up_API\\Rise_Up_API\\Rise_Up_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexandre\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\alexandre\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
