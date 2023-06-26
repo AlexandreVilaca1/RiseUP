@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rise_up2/Admin/main_page_admin.dart';
 import 'package:rise_up2/Data/fetch_mission_data.dart';
 import 'package:rise_up2/models/missions.dart';
-
 
 class EditMissionsPage extends StatefulWidget {
   final Missions missions;
@@ -16,11 +15,28 @@ class EditMissionsPage extends StatefulWidget {
 class _EditMissionsPageState extends State<EditMissionsPage> {
   final _formKey = GlobalKey<FormState>();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Missions'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          color: Colors.black,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MainPageAdmin(),
+              ),
+            );
+          },
+        ),
+        backgroundColor: Colors.white,
+        title: const Text(
+          'Edit Mission',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -54,13 +70,13 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 },
                 onSaved: (value) {
                   if (value != null) {
-                    widget.missions.descriptionMission = (value);
+                    widget.missions.locality = (value);
                   }
                 },
               ),
               TextFormField(
-                initialValue: widget.missions.stateMission,
-                decoration: const InputDecoration(labelText: 'Nacionalidade'),
+                initialValue: widget.missions.descriptionMission,
+                decoration: const InputDecoration(labelText: 'Description'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a Nacionalidade';
@@ -69,12 +85,13 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 },
                 onSaved: (value) {
                   if (value != null) {
-                    widget.missions.stateMission = value;
+                    widget.missions.descriptionMission = value;
                   }
                 },
               ),
               TextFormField(
-                initialValue: widget.missions.dateMission.toString(),
+                initialValue:
+                    widget.missions.dateMission.toString().split(' ')[0],
                 decoration: const InputDecoration(labelText: 'Mission Date'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -92,8 +109,31 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    print('Updated Mission: ${widget.missions}');
                     FetchDataMissions.putMissions(widget.missions);
+
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Mission Updated'),
+                          content: const Text('The mission has been updated successfully.'),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const MainPageAdmin(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   }
                 },
                 child: const Text('Update Mission'),

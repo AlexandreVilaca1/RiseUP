@@ -112,8 +112,10 @@ CREATE TABLE Monetary_Donations (
 	date_donation		 DATE					NOT NULL,
 
 	PRIMARY KEY (id_monetary_donation),
-	CONSTRAINT fk_mission FOREIGN KEY (id_mission) REFERENCES Missions(id_mission) ON DELETE NO ACTION ON UPDATE CASCADE,
-	CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE NO ACTION ON UPDATE CASCADE,
+	ALTER TABLE Monetary_Donations
+	ADD
+	CONSTRAINT fk_user FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_mission FOREIGN KEY (id_mission) REFERENCES Missions(id_mission) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT fk_associationn FOREIGN KEY (id_association) REFERENCES Associations(id_association) ON DELETE NO ACTION ON UPDATE CASCADE,
 	CONSTRAINT fk_payment_method FOREIGN KEY (id_payment_method) REFERENCES Payment_Method(id_payment_method) ON DELETE NO ACTION ON UPDATE CASCADE
 

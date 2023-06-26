@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up2/Admin/main_page_admin.dart';
-import 'package:rise_up2/Pages/Profile/edit_profile.dart';
+import 'package:rise_up2/models/users.dart';
 import '../Missions/main_page.dart';
 import '../Support/support_page.dart';
 
@@ -8,9 +8,10 @@ import '../Support/support_page.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
+    final Users users;
     return Drawer(
       child: ListView(
         children: [
@@ -37,22 +38,22 @@ class NavBar extends StatelessWidget {
             color: Colors.grey,
             thickness: 1,
           ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const EditProfile(),
-                ),
-              ); 
-            },
-          ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.person),
+          //   title: const Text('Profile'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) =>  EditProfile(users: users,),
+          //       ),
+          //     ); 
+          //   },
+          // ),
+          // const Divider(
+          //   color: Colors.grey, 
+          //   thickness: 1, 
+          // ),
           const ListTile(
             leading:  Icon(Icons.history_edu),
             title:  Text('Contribuitions'),
@@ -109,8 +110,8 @@ class NavBar extends StatelessWidget {
             color: Colors.grey, 
             thickness: 1, 
           ),
-          Column(
-            children: const [
+          const Column(
+            children: [
               SizedBox(
                 height: 300,
               ),

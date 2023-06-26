@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rise_up2/Admin/main_page_admin.dart';
+import 'package:rise_up2/Admin/users.dart';
+import 'package:rise_up2/Pages/Authentication/request_login.dart';
 
-import 'package:rise_up2/Pages/Profile/edit_profile.dart';
-
-import '../Pages/Missions/main_page.dart';
-import '../Pages/Support/support_page.dart';
 
 
 
@@ -29,7 +28,41 @@ class NavBarAdmin extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const MainPage(),
+                  builder: (context) => const MainPageAdmin(),
+                ),
+              ); 
+            },
+          ),
+          
+          const Divider(
+            color: Colors.grey,
+            thickness: 1, 
+          ),
+          ListTile(
+            leading: const Icon(Icons.support_agent_outlined),
+            title: const Text('Users'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EditUsersPage(),
+                ),
+              ); 
+            },
+          ),
+          
+          const Divider(
+            color: Colors.grey, 
+            thickness: 1, 
+          ),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Exit'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RequestLogin(),
                 ),
               ); 
             },
@@ -37,62 +70,6 @@ class NavBarAdmin extends StatelessWidget {
           const Divider(
             color: Colors.grey,
             thickness: 1,
-          ),
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const EditProfile(),
-                ),
-              ); 
-            },
-          ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
-          ),
-          const ListTile(
-            leading:  Icon(Icons.history_edu),
-            title:  Text('Users'),
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => const ContributionScreen(),
-            //     ),
-            //   ); 
-            // },
-          ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
-          ),
-          ListTile(
-            leading: const Icon(Icons.support_agent_outlined),
-            title: const Text('Support'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SupportPage(),
-                ),
-              ); 
-            },
-          ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
-          ),
-          const ListTile(
-            leading:  Icon(Icons.exit_to_app),
-            title:  Text('Exit'),
-          ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
           ),
           const Column(
             children: [

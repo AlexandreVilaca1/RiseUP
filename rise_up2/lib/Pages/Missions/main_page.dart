@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
               ),
               itemBuilder: (BuildContext context, int index) {
                 Missions mission = missions[index];
-                DateFormat dateFormat = DateFormat.yMd(); // Use the desired date format
+                DateFormat dateFormat = DateFormat.yMd();
                 String formattedDate = dateFormat.format(mission.dateMission);
                 return GestureDetector(
                   onTap: () {

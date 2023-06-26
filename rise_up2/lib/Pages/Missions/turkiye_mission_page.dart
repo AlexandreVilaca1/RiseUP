@@ -65,14 +65,14 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Images(imagePath: 'assets/images/turkiye_earthquake.png'),
-                  MissionTitleText(text: 'Turkiye Mission'),
+                  const Images(imagePath: 'assets/images/turkiye_earthquake.png'),
+                  const MissionTitleText(text: 'Turkiye Mission'),
                   DescriptionTextWidget(
                     missionId: 1,
                     missionList: json,
                   ),
-                  TypeDonationTitle(text: 'How you would like to donate?'),
-                  SegmentedControlApp(),
+                  const TypeDonationTitle(text: 'How you would like to donate?'),
+                  const SegmentedControlApp(),
                 ],
               ),
             ),

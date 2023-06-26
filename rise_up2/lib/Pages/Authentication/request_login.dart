@@ -10,7 +10,7 @@ class RequestLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavBar(),
+      drawer:  NavBar(),
       appBar: const AppBarWidget(text: 'Rise Up'),
       body: Container(
         padding: const EdgeInsets.only(top: 60, left: 40, right: 40),
