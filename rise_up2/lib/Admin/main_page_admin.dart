@@ -6,7 +6,7 @@ import 'package:rise_up2/Data/fetch_mission_data.dart';
 import '../../models/missions.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
 import '../Pages/Missions/turkiye_mission_page.dart';
-
+import 'edit_mission.dart';
 
 class MainPageAdmin extends StatefulWidget {
   const MainPageAdmin({Key? key}) : super(key: key);
@@ -67,15 +67,14 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TurkieMissionPage(),
+                          builder: (context) => const TurkieMissionPage(),
                         ),
                       );
                     } else if (mission.idMission == 2) {
-                      
+                      // Handle mission with id 2
                     } else if (mission.idMission == 3) {
-                      // Navigate to a different page for mission ID 3
+                      // Handle mission with id 3
                     }
-                    // Add more conditions for other mission IDs
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 2),
@@ -102,6 +101,35 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                           Text(formattedDate),
                         ],
                       ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              // Handle edit button press
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => EditMissionsPage(missions: mission),
+                                ),
+                              );
+                            },
+                            icon: Icon(Icons.edit),
+                          ),
+                          // IconButton(
+                          //   onPressed: () {
+                          //     // Handle delete button press
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //         builder: (context) => DeleteMissionPage(: mission),
+                          //       ),
+                          //     );
+                          //   },
+                          //   icon: Icon(Icons.delete),
+                          // ),
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -113,3 +141,4 @@ class _MainPageAdminState extends State<MainPageAdmin> {
     );
   }
 }
+

@@ -14,4 +14,17 @@ class FetchDataMissions {
     missions = List<Missions>.from(iterable.map((e) => Missions.fromJson(e)));
     return missions;
 }
+
+static Future<void> putMissions(Missions missions) async {
+  const apiUrl = 'http://10.0.2.2:7209/api/Missions'; 
+   final updateUrl = apiUrl + missions.idMission.toString();
+
+  final body = {
+    'nome_jogador': missions.missionName.toString(),
+    'dt_nasc': missions.dateMission.toString(),
+    'nacionalidade': missions.descriptionMission.toString(),
+    'email': missions.locality.toString(),
+    'id_equipa': missions.stateMission.toString()
+  };
+ }
 }

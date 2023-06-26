@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rise_up2/Admin/main_page_admin.dart';
 import 'package:rise_up2/Pages/Profile/edit_profile.dart';
-import '../../Admin/main_page_admin.dart';
 import '../Missions/main_page.dart';
 import '../Support/support_page.dart';
 

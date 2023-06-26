@@ -16,8 +16,8 @@ class NavBarAdmin extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text('Michael Scott'),
-            accountEmail: const Text('michaelscott@gmail.com'),
+            accountName: const Text('Admin'),
+            accountEmail: const Text('admin@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(child: Image.asset('assets/images/michael_scott_header.png')),
             ),
@@ -94,12 +94,8 @@ class NavBarAdmin extends StatelessWidget {
             color: Colors.grey, // cor da linha (opcional)
             thickness: 1, // espessura da linha (opcional)
           ),
-          const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
-          ),
-          Column(
-            children: const [
+          const Column(
+            children: [
               SizedBox(
                 height: 300,
               ),
