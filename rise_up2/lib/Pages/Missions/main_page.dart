@@ -2,9 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:rise_up2/Data/fetch_mission_data.dart';
+import 'package:rise_up2/Pages/Missions/congo_mission_page.dart';
+import 'package:rise_up2/Pages/Missions/cyclone_freddy_mission.dart';
+import 'package:rise_up2/Pages/Missions/syria_earthquake.dart';
+import 'package:rise_up2/Pages/Missions/ukrayne_mission.dart';
 import 'package:rise_up2/Pages/Navegation_Bar/nav_bar.dart';
 import '../../models/missions.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
+import 'cyclone_mocha_mission_page.dart';
 import 'turkiye_mission_page.dart';
 
 
@@ -16,7 +21,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final json = FetchDataMissions.fetchMissions();
+  final json = FetchDataMissions.getMissions();
   Map<int, String> missionImagePaths = {
     1: 'assets/images/turkiye_earthquake.png',
     2: 'assets/images/ukraine_war.png',
@@ -59,7 +64,7 @@ class _MainPageState extends State<MainPage> {
               ),
               itemBuilder: (BuildContext context, int index) {
                 Missions mission = missions[index];
-                DateFormat dateFormat = DateFormat.yMd();
+                DateFormat dateFormat = DateFormat('yyyy-MM-dd');
                 String formattedDate = dateFormat.format(mission.dateMission);
                 return GestureDetector(
                   onTap: () {
@@ -71,9 +76,43 @@ class _MainPageState extends State<MainPage> {
                         ),
                       );
                     } else if (mission.idMission == 2) {
-                      
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UkrayneMissionPage(),
+                        ),
+                      );
                     } else if (mission.idMission == 3) {
-                      
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CongoMissionPage(),
+                        ),
+                      );
+                    }
+                    else if (mission.idMission == 4) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CycloneFreddyPage(),
+                        ),
+                      );
+                    }
+                    else if (mission.idMission == 5) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SyriaMissionPage(),
+                        ),
+                      );
+                    }
+                    else if (mission.idMission == 6) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CycloneMochaPage(),
+                        ),
+                      );
                     }
                     
                   },

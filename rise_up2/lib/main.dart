@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up2/palette.dart';
-import 'Pages/Missions/main_page.dart';
+import 'package:rise_up2/widgets/ButtonsWidgets/select_collection_point.dart';
+
 
 
 void main() => runApp(MyApp());
@@ -15,7 +16,7 @@ Widget build(BuildContext context) {
     theme: ThemeData(
       primarySwatch: Palette.pColor,
     ),
-    home:  MainPage(),
+    home:  SelectCollectionPoint(),
   );
 }
 }

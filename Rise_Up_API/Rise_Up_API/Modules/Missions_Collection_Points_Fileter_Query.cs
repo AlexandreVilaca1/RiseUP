@@ -6,6 +6,7 @@ namespace Rise_Up_API.Modules
     public class Missions_Collection_Points_Fileter_Query
     {
         public int id_mission { get; set; }
+        public string mission_name { get; set; }
         public string collection_point_name { get; set; }
         public string postal_code { get; set; }
         public string district { get; set; }

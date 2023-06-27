@@ -10,14 +10,14 @@ import '../../widgets/ButtonsWidgets/segmentedcontrollapp.dart';
 import '../../widgets/TextWidgets/type_donation_title.dart';
 import 'main_page.dart';
 
-class TurkieMissionPage extends StatefulWidget {
-  const TurkieMissionPage({Key? key}) : super(key: key);
+class UkrayneMissionPage extends StatefulWidget {
+  const UkrayneMissionPage({Key? key}) : super(key: key);
 
   @override
-  State<TurkieMissionPage> createState() => _TurkieMissionPage();
+  State<UkrayneMissionPage> createState() => _UkrayneMissionPage();
 }
 
-class _TurkieMissionPage extends State<TurkieMissionPage> {
+class _UkrayneMissionPage extends State<UkrayneMissionPage> {
   final json = FetchDataMissions.getMissions();
 
   @override
@@ -41,6 +41,7 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
             );
           }
 
+          
           // ignore: unused_local_variable
           List<Missions> missions = snapshot.data!;
           return Scaffold(
@@ -59,7 +60,7 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
               ),
               backgroundColor: Colors.white,
               title: const Text(
-                'Turkye Mission',
+                'Ukrayne Mission',
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -68,10 +69,10 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Images(
-                      imagePath: 'assets/images/turkiye_earthquake.png'),
-                  const MissionTitleText(text: 'Turkiye Mission'),
+                      imagePath: 'assets/images/ukraine_war.png'),
+                  const MissionTitleText(text: 'Ukrayne War'),
                   DescriptionTextWidget(
-                    missionId: 1,
+                    missionId: 2,
                     missionList: json,
                   ),
                   const TypeDonationTitle(

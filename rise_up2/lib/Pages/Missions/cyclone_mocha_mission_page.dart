@@ -10,14 +10,14 @@ import '../../widgets/ButtonsWidgets/segmentedcontrollapp.dart';
 import '../../widgets/TextWidgets/type_donation_title.dart';
 import 'main_page.dart';
 
-class TurkieMissionPage extends StatefulWidget {
-  const TurkieMissionPage({Key? key}) : super(key: key);
+class CycloneMochaPage extends StatefulWidget {
+  const CycloneMochaPage({Key? key}) : super(key: key);
 
   @override
-  State<TurkieMissionPage> createState() => _TurkieMissionPage();
+  State<CycloneMochaPage> createState() => _CycloneMochaPage();
 }
 
-class _TurkieMissionPage extends State<TurkieMissionPage> {
+class _CycloneMochaPage extends State<CycloneMochaPage> {
   final json = FetchDataMissions.getMissions();
 
   @override
@@ -59,7 +59,7 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
               ),
               backgroundColor: Colors.white,
               title: const Text(
-                'Turkye Mission',
+                'Cyclone Freddy Mission',
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -68,10 +68,10 @@ class _TurkieMissionPage extends State<TurkieMissionPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Images(
-                      imagePath: 'assets/images/turkiye_earthquake.png'),
-                  const MissionTitleText(text: 'Turkiye Mission'),
+                      imagePath: 'assets/images/cyclone_mocha_myanmar.png'),
+                  const MissionTitleText(text: 'Cyclone Mocha'),
                   DescriptionTextWidget(
-                    missionId: 1,
+                    missionId: 6,
                     missionList: json,
                   ),
                   const TypeDonationTitle(

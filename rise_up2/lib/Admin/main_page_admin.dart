@@ -16,7 +16,7 @@ class MainPageAdmin extends StatefulWidget {
 }
 
 class _MainPageAdminState extends State<MainPageAdmin> {
-  final json = FetchDataMissions.fetchMissions();
+  final json = FetchDataMissions.getMissions();
   Map<int, String> missionImagePaths = {
     1: 'assets/images/turkiye_earthquake.png',
     2: 'assets/images/ukraine_war.png',

@@ -116,7 +116,7 @@ class _EditProfileState extends State<EditProfile> {
                         decoration: const InputDecoration(labelText: 'Email'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter a email for the mission';
+                            return 'Please enter a email';
                           }
                           return null;
                         },
@@ -137,8 +137,8 @@ class _EditProfileState extends State<EditProfile> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: const Text('Mission Updated'),
-                                  content: const Text('The mission has been updated successfully.'),
+                                  title: const Text('User Updated'),
+                                  content: const Text('The user has been updated successfully.'),
                                   actions: <Widget>[
                                     TextButton(
                                       child: const Text('OK'),
@@ -158,7 +158,7 @@ class _EditProfileState extends State<EditProfile> {
                             );
                           }
                         },
-                        child: const Text('Update Mission'),
+                        child: const Text('Update User'),
                       ),
                     ],
                   ),

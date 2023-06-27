@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up2/Admin/main_page_admin.dart';
-import 'package:rise_up2/models/users.dart';
+import '../Donations/historic_contribuitons.dart';
 import '../Missions/main_page.dart';
 import '../Support/support_page.dart';
 
@@ -11,15 +11,15 @@ class NavBar extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final Users users;
+    // final Users users;
     return Drawer(
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text('Michael Scott'),
-            accountEmail: const Text('michaelscott@gmail.com'),
+            accountName: const Text('Bernard1'),
+            accountEmail: const Text('bernardapril00@gmail.com'),
             currentAccountPicture: CircleAvatar(
-              child: ClipOval(child: Image.asset('assets/images/michael_scott_header.png')),
+              child: ClipOval(child: Image.asset('assets/images/user1.jpeg')),
             ),
           ),
           ListTile(
@@ -38,37 +38,37 @@ class NavBar extends StatelessWidget {
             color: Colors.grey,
             thickness: 1,
           ),
-          // ListTile(
-          //   leading: const Icon(Icons.person),
-          //   title: const Text('Profile'),
+          const ListTile(
+            leading:  Icon(Icons.person),
+            title:  Text('Profile'),
           //   onTap: () {
           //     Navigator.push(
           //       context,
           //       MaterialPageRoute(
-          //         builder: (context) =>  EditProfile(users: users,),
+          //         builder: (context) =>  HistoricContribuitonsPage(),
           //       ),
           //     ); 
           //   },
-          // ),
-          // const Divider(
-          //   color: Colors.grey, 
-          //   thickness: 1, 
-          // ),
-          const ListTile(
-            leading:  Icon(Icons.history_edu),
-            title:  Text('Contribuitions'),
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => const ContributionScreen(),
-            //     ),
-            //   ); 
-            // },
+           ),
+          const Divider(
+            color: Colors.grey, 
+            thickness: 1, 
+          ),
+           ListTile(
+            leading: const Icon(Icons.history_edu),
+            title: const Text('Historic Contribuitons'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HistoricContribuitonsPage(),
+                ),
+              ); 
+            },
           ),
           const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
+            color: Colors.grey,
+            thickness: 1,
           ),
           ListTile(
             leading: const Icon(Icons.support_agent_outlined),
@@ -83,8 +83,8 @@ class NavBar extends StatelessWidget {
             },
           ),
           const Divider(
-            color: Colors.grey, // cor da linha (opcional)
-            thickness: 1, // espessura da linha (opcional)
+            color: Colors.grey,
+            thickness: 1,
           ),
           const ListTile(
             leading:  Icon(Icons.exit_to_app),

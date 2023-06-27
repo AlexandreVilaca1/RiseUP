@@ -7,8 +7,8 @@ import 'dart:core';
 import 'package:flutter/services.dart';
 
 class DonationPage extends StatefulWidget {
-  const DonationPage({Key? key}) : super(key: key);
-
+  const DonationPage({required this.idMission, Key ? key}) : super(key: key);
+  final int idMission;
   @override
   State<DonationPage> createState() => _DonationPageState();
 }
@@ -353,29 +353,13 @@ class _DonationPageState extends State<DonationPage> {
                         FilteringTextInputFormatter.digitsOnly
                       ], // adicionado para restringir a entrada a dígitos
                       decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(13.0),
+                        contentPadding: EdgeInsets.all(10.0),
                         hintText: 'Insert Amount',
                         border: InputBorder.none,
                       ),
                     ),
                   ),
-                if (selectedValueIndex == 4)
-                  Container(
-                    width: 40,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        ',00€',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
+                
 
                 // fim do campo de preenchimento "Insert Ammount"
               ],
@@ -465,8 +449,8 @@ class _DonationPageState extends State<DonationPage> {
                     child: Text(
                       'IBAN: PT50AAAAAABBBBBBCCCCC',
                       style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
@@ -490,8 +474,8 @@ class _DonationPageState extends State<DonationPage> {
                     child: Text(
                       'Value: 30€',
                       style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
@@ -510,7 +494,7 @@ class _DonationPageState extends State<DonationPage> {
                 Container(
                   width: 220,
                   height: 35,
-                  margin: const EdgeInsets.only(left: 50.0),
+                  margin: const EdgeInsets.only(left: 20.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
@@ -522,7 +506,7 @@ class _DonationPageState extends State<DonationPage> {
                     textAlign: TextAlign.center,
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(13.0),
+                      contentPadding: EdgeInsets.all(10.0),
                       hintText: 'Phone Number',
                       border: InputBorder.none,
                     ),

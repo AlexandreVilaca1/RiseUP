@@ -14,13 +14,13 @@ class EditUsersPage extends StatefulWidget {
 }
 
 class _EditUsersPageState extends State<EditUsersPage> {
-  final json = FetchDataUsers.fetchUsers();
+  final json = FetchDataUsers.getUsers();
   Map<int, String> userImagePaths = {
     1: 'assets/images/user1.jpeg',
-    2: 'assets/images/user2.jpg',
-    3: 'assets/images/user3.jpeg',
+    2: 'assets/images/user3.jpeg',
+    3: 'assets/images/user5.avif',
     4: 'assets/images/user4.jpg',
-    5: 'assets/images/user5.avif',
+    5: 'assets/images/user2.jpg',
     6: 'assets/images/cyclone_mocha_myanmar.png',
   };
 
@@ -58,21 +58,6 @@ class _EditUsersPageState extends State<EditUsersPage> {
               itemBuilder: (BuildContext context, int index) {
                 Users user = users[index];
                 return GestureDetector(
-                  onTap: () {
-                    if (user.idUser == 1) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const EditUsersPage(),
-                        ),
-                      );
-                    } else if (user.idUser == 2) {
-                      
-                    } else if (user.idUser == 3) {
-                      
-                    }
-                    
-                  },
                 child: Container(
                   margin: const EdgeInsets.only(top: 2),
                   child: ListTile(

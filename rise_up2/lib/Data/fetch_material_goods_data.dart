@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:rise_up2/models/material_goods.dart';
 
 class FetchDataMaterialGoods {
-  static Future<List<MaterialGoods>> fetchMaterialGoods () async {
+  static Future<List<MaterialGoods>> getMaterialGoods () async {
     Iterable iterable;
     List<MaterialGoods> materialGoods;
 

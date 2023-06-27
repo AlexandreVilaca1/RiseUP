@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:rise_up2/models/users.dart';
 
 class FetchDataUsers {
-  static Future<List<Users>> fetchUsers() async {
+  static Future<List<Users>> getUsers() async {
     Iterable iterable;
     List<Users> users;
 
@@ -24,7 +24,6 @@ class FetchDataUsers {
       'user_name_': users.username.toString(),
       'e_mail': users.email.toString(),
       'pass_word': users.email.toString(),
-
     };
 
     final response = await http.put(
@@ -32,20 +31,25 @@ class FetchDataUsers {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(body),
     );
-  } 
-   static Future<void> deleteUser(int idUser) async {
-      const apiUrl = 'http://10.0.2.2:7014/api/Users/';
-      final deleteUrl = apiUrl + idUser.toString();
-
-      final response = await http.delete(
-        Uri.parse(deleteUrl),
-      );
-
-      if (response.statusCode == 204) {
-        print('Mission deleted successfully.');
-      } else {
-        print('Failed to delete mission. Status code: ${response.statusCode}');
-      }
+    if (response.statusCode == 204) {
+      print('Mission deleted successfully.');
+    } else {
+      print('Failed to delete mission. Status code: ${response.statusCode}');
     }
   }
 
+  static Future<void> deleteUser(int idUser) async {
+    const apiUrl = 'http://10.0.2.2:7014/api/Users/';
+    final deleteUrl = apiUrl + idUser.toString();
+
+    final response = await http.delete(
+      Uri.parse(deleteUrl),
+    );
+
+    if (response.statusCode == 204) {
+      print('Mission deleted successfully.');
+    } else {
+      print('Failed to delete mission. Status code: ${response.statusCode}');
+    }
+  }
+}

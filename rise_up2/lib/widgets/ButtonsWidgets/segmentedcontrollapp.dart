@@ -16,12 +16,17 @@ class SegmentedControlApp extends StatefulWidget {
 class _SegmentedControlApp extends State<SegmentedControlApp> {
   Future<List<MaterialGoods>>? _materialGoodsFuture;
   int? groupValue = 0;
-  List<bool> _checkedList = [];
+  late List<bool> _checkedList;
 
   @override
   void initState() {
     super.initState();
-    _materialGoodsFuture = FetchDataMaterialGoods.fetchMaterialGoods();
+    _materialGoodsFuture = FetchDataMaterialGoods.getMaterialGoods();
+    _materialGoodsFuture!.then((data) {
+      setState(() {
+        _checkedList = List<bool>.filled(data.length, false);
+      });
+    });
   }
 
   @override
@@ -46,7 +51,6 @@ class _SegmentedControlApp extends State<SegmentedControlApp> {
           }
 
           List<MaterialGoods> materialGoods = snapshot.data!;
-          _checkedList = List<bool>.filled(materialGoods.length, false);
           return Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(20),
@@ -85,29 +89,31 @@ class _SegmentedControlApp extends State<SegmentedControlApp> {
                             });
                           },
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Checkbox(
-                                value: _checkedList[i],
-                                onChanged: (value) {
-                                  setState(() {
-                                    _checkedList[i] = value!;
-                                  });
-                                },
-                              ),
-                              if (_checkedList[i])
-                                const Icon(
-                                  Icons.check,
-                                  color: Colors.green,
-                                ),
-                              const SizedBox(width: 8),
                               Text(
                                 materialGoods[i].materialGoodName,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.normal,
                                   color: _checkedList[i]
-                                      ? Colors.green
+                                      ? Color.fromARGB(255, 94, 6, 6)
                                       : Colors.black,
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Row(
+                                  children: [
+                                    Checkbox(
+                                      value: _checkedList[i],
+                                      onChanged: (value) {
+                                        setState(() {
+                                          _checkedList[i] = value!;
+                                        });
+                                      },
+                                    ),                        
+                                  ],
                                 ),
                               ),
                             ],
@@ -124,7 +130,7 @@ class _SegmentedControlApp extends State<SegmentedControlApp> {
   }
 
   Widget buildSegment(String text) => Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(10),
         child: Text(
           text,
           style: const TextStyle(fontSize: 14, color: Colors.white),
