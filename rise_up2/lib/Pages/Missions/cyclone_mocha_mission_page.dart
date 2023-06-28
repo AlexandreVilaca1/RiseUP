@@ -31,7 +31,7 @@ class _CycloneMochaPage extends State<CycloneMochaPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );

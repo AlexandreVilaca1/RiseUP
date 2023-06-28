@@ -1,4 +1,4 @@
- import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rise_up2/Pages/Missions/main_page.dart';
 import 'package:rise_up2/Pages/Missions/turkiye_mission_page.dart';
@@ -7,7 +7,7 @@ import 'dart:core';
 import 'package:flutter/services.dart';
 
 class DonationPage extends StatefulWidget {
-  const DonationPage({required this.idMission, Key ? key}) : super(key: key);
+  const DonationPage({required this.idMission, Key? key}) : super(key: key);
   final int idMission;
   @override
   State<DonationPage> createState() => _DonationPageState();
@@ -66,12 +66,12 @@ class _DonationPageState extends State<DonationPage> {
 
           const SizedBox(height: 20),
 
-          /// buttons de quantia de dinheiro
+          /// buttons money quantity
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // primeiro button
+              // first button
 
               GestureDetector(
                 onTap: () {
@@ -121,7 +121,7 @@ class _DonationPageState extends State<DonationPage> {
                 ),
               ),
 
-              // segundo buttton
+              // second buttton
 
               GestureDetector(
                 onTap: () {
@@ -171,7 +171,7 @@ class _DonationPageState extends State<DonationPage> {
                 ),
               ),
 
-              // terceiro button
+              // third button
 
               GestureDetector(
                 onTap: () {
@@ -221,7 +221,7 @@ class _DonationPageState extends State<DonationPage> {
                 ),
               ),
 
-              // quarto button
+              // fourth button
 
               GestureDetector(
                 onTap: () {
@@ -273,7 +273,7 @@ class _DonationPageState extends State<DonationPage> {
             ],
           ),
 
-          // Fim dos buttons de quantia de dinheiro
+          // End of the buttons Quantity of money
 
           const SizedBox(height: 25),
 
@@ -287,17 +287,17 @@ class _DonationPageState extends State<DonationPage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      if (selectedValueIndex == -1 || 
-                        selectedValueIndex == 0 ||
-                        selectedValueIndex == 1 ||
-                        selectedValueIndex == 2 ||
-                        selectedValueIndex == 3) {
+                      if (selectedValueIndex == -1 ||
+                          selectedValueIndex == 0 ||
+                          selectedValueIndex == 1 ||
+                          selectedValueIndex == 2 ||
+                          selectedValueIndex == 3) {
                         selectedValueIndex = 4;
                       } else if (selectedValueIndex == 0 ||
-                        selectedValueIndex == 1 ||
-                        selectedValueIndex == 2 ||
-                        selectedValueIndex == 3 ||
-                        selectedValueIndex == 4) {
+                          selectedValueIndex == 1 ||
+                          selectedValueIndex == 2 ||
+                          selectedValueIndex == 3 ||
+                          selectedValueIndex == 4) {
                         selectedValueIndex = -1;
                       }
                     });
@@ -328,7 +328,7 @@ class _DonationPageState extends State<DonationPage> {
                   ),
                 ),
 
-                // Inicio do campo de preenchimento "Insert Ammount"
+                //Beginning of the field "Insert Ammount"
 
                 if (selectedValueIndex == 4)
                   Container(
@@ -339,19 +339,15 @@ class _DonationPageState extends State<DonationPage> {
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         color: const Color.fromARGB(255, 43, 0, 0),
-                        width:
-                            2.0, // Optional: Increase the width of the border
+                        width: 2.0,
                       ),
                     ),
                     child: TextField(
                       controller: amountController,
                       textAlign: TextAlign.center,
                       textAlignVertical: TextAlignVertical.center,
-                      keyboardType: TextInputType
-                          .number, // adicionado para restringir a entrada a números
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // adicionado para restringir a entrada a dígitos
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       decoration: const InputDecoration(
                         contentPadding: EdgeInsets.all(10.0),
                         hintText: 'Insert Amount',
@@ -359,24 +355,23 @@ class _DonationPageState extends State<DonationPage> {
                       ),
                     ),
                   ),
-                
 
-                // fim do campo de preenchimento "Insert Ammount"
+                //End of the field "Insert Ammount"
               ],
             ),
           ),
 
-          // fim do button "other"
+          // End of button "other"
 
           const SizedBox(height: 30),
 
-          // inicio do Texto "payment methods"
+          // Beggining of Text "payment methods"
 
           Container(
             margin: const EdgeInsets.only(top: 0.0),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children:  [
+              children: [
                 Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
@@ -392,11 +387,11 @@ class _DonationPageState extends State<DonationPage> {
             ),
           ),
 
-          // fim do Texto "payment methods"
+          // End of Text "payment methods"
 
           const SizedBox(height: 30),
 
-          // inicio do button duplo "bank Transfer" // "MBWay"
+          // Beggining of the segmented button "bank Transfer" // "MBWay"
 
           Container(
             alignment: Alignment.center,
@@ -424,26 +419,24 @@ class _DonationPageState extends State<DonationPage> {
                 },
                 onValueChanged: (groupValue) {
                   setState(() => this.groupValue = groupValue);
-                  if (groupValue == 1) {
-                    // TODO: Adicione seu código aqui de acordo com os requisitos do projeto.
-                  }
+                  if (groupValue == 1) {}
                 },
               ),
             ),
           ),
 
-          // fim do botao duplo "bank transfer" // "MBWay"
+          // End of segmented button "bank transfer" // "MBWay"
 
           const SizedBox(height: 20),
 
-          // inicio do Texto "IBAN"
+          // beggining if "IBAN" Text
 
           if (groupValue == 0)
             Container(
               margin: const EdgeInsets.only(top: 0.0),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children:  [
+                children: [
                   Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
@@ -459,16 +452,16 @@ class _DonationPageState extends State<DonationPage> {
               ),
             ),
 
-          // fim do Texto "IBAN"
+          // End of "IBAN" Text
 
-          // inicio do texto "Value"
+          // Beggining of text "value"
 
           if (groupValue == 0)
-             Container(
+            Container(
               margin: const EdgeInsets.only(top: 0.0),
-              child:  const Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children:  [
+                children: [
                   Padding(
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
@@ -484,9 +477,9 @@ class _DonationPageState extends State<DonationPage> {
               ),
             ),
 
-          // fim do texto "Value"
+          // End of text "value"
 
-          // inicio da Caixa de texto "Phone Number"
+          // Beggining of text field "Phone Number"
 
           if (groupValue == 1)
             Row(
@@ -515,18 +508,17 @@ class _DonationPageState extends State<DonationPage> {
               ],
             ),
 
-          // fim da caixa de texto "Phone Number"
+          // End of beggining text fiels "Phone Number"
 
           const SizedBox(height: 30),
 
-          // inicio do Check Box "Accept Terms"
+          // Beggining of Check Box "Accept Terms"
 
           Container(
             child: CheckboxListTile(
-              title: Text("Accept Terms"),
+              title: const Text("Accept Terms"),
               value: _isChecked,
               onChanged: (bool? newValue) {
-                // Fix: Use 'bool?' instead of 'bool'
                 if (newValue != null) {
                   setState(() {
                     _isChecked = newValue;
@@ -537,11 +529,11 @@ class _DonationPageState extends State<DonationPage> {
             ),
           ),
 
-          // fim do Check Box "Accept Terms"
+          // End of Check Box "Accept Terms"
 
           const SizedBox(height: 35),
 
-          // inicio do Botao "Donate"
+          // Beggining of Button "Donate"
 
           Container(
             width: 150,
@@ -579,7 +571,6 @@ class _DonationPageState extends State<DonationPage> {
                     }
                   }
                 } else if (selectedValueIndex == 0 && _isChecked == true) {
-                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -587,7 +578,6 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 1 && _isChecked == true) {
-                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -595,7 +585,6 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 2 && _isChecked == true) {
-                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -603,14 +592,12 @@ class _DonationPageState extends State<DonationPage> {
                     ),
                   );
                 } else if (selectedValueIndex == 3 && _isChecked == true) {
-                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const MainPage(),
                     ),
                   );
-
                 } else {
                   showDialog(
                     context: context,
@@ -634,7 +621,6 @@ class _DonationPageState extends State<DonationPage> {
               },
             ),
           ),
-
         ],
       ),
     );

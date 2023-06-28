@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rise_up2/Admin/main_page_admin.dart';
 import 'package:rise_up2/Data/fetch_mission_data.dart';
 import 'package:rise_up2/models/missions.dart';
 
-class EditMissionsPage extends StatefulWidget {
+class AddMissionPage extends StatefulWidget {
   final Missions missions;
 
-  const EditMissionsPage({required this.missions, Key? key}) : super(key: key);
+  const AddMissionPage({required this.missions, Key? key}) : super(key: key);
 
   @override
-  _EditMissionsPageState createState() => _EditMissionsPageState();
+  _AddMissionPageState createState() => _AddMissionPageState();
 }
 
-class _EditMissionsPageState extends State<EditMissionsPage> {
+class _AddMissionPageState extends State<AddMissionPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -33,7 +34,7 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
         ),
         backgroundColor: Colors.white,
         title: const Text(
-          'Edit Mission',
+          'Add a new Mission',
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -44,7 +45,6 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
           child: ListView(
             children: [
               TextFormField(
-                initialValue: widget.missions.missionName,
                 decoration: const InputDecoration(labelText: 'Missions Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -59,7 +59,6 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 },
               ),
               TextFormField(
-                initialValue: widget.missions.locality.toString(),
                 decoration: const InputDecoration(labelText: 'Locality'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -74,7 +73,6 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 },
               ),
               TextFormField(
-                initialValue: widget.missions.descriptionMission,
                 decoration: const InputDecoration(labelText: 'Description'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -89,8 +87,6 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                 },
               ),
               TextFormField(
-                initialValue:
-                    widget.missions.dateMission.toString().split(' ')[0],
                 decoration: const InputDecoration(labelText: 'Mission Date'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -104,17 +100,49 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                   }
                 },
               ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'State Mission'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a date to the mission';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    widget.missions.stateMission;
+                  }
+                },
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Financed Amount'),
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a date to the mission';
+                  }
+                  return null;
+                },
+                onSaved: (value) {
+                  if (value != null) {
+                    widget.missions;
+                  }
+                },
+              ),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    FetchDataMissions.putMissions(widget.missions);
+                    FetchDataMissions.postMissions(widget.missions);
 
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: const Text('Mission Updated'),
+                          title: const Text('Create Mission'),
                           content: const Text(
                               'The mission has been updated successfully.'),
                           actions: <Widget>[
@@ -136,7 +164,7 @@ class _EditMissionsPageState extends State<EditMissionsPage> {
                     );
                   }
                 },
-                child: const Text('Update Mission'),
+                child: const Text('Mission Created'),
               ),
             ],
           ),

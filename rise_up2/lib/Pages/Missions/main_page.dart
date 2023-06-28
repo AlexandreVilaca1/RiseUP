@@ -12,7 +12,6 @@ import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
 import 'cyclone_mocha_mission_page.dart';
 import 'turkiye_mission_page.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -42,7 +41,7 @@ class _MainPageState extends State<MainPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -89,24 +88,21 @@ class _MainPageState extends State<MainPage> {
                           builder: (context) => const CongoMissionPage(),
                         ),
                       );
-                    }
-                    else if (mission.idMission == 4) {
+                    } else if (mission.idMission == 4) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const CycloneFreddyPage(),
                         ),
                       );
-                    }
-                    else if (mission.idMission == 5) {
+                    } else if (mission.idMission == 5) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const SyriaMissionPage(),
                         ),
                       );
-                    }
-                    else if (mission.idMission == 6) {
+                    } else if (mission.idMission == 6) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -114,7 +110,6 @@ class _MainPageState extends State<MainPage> {
                         ),
                       );
                     }
-                    
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 2),

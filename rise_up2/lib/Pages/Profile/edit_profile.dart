@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:rise_up2/Admin/main_page_admin.dart';
 import 'package:rise_up2/Admin/nav_bar_admin.dart';
-import 'package:rise_up2/Data/fetch_users.dart';
-import 'package:rise_up2/models/users.dart';
+import 'package:rise_up2/Pages/Missions/main_page.dart';
 import '../../palette.dart';
 
 class EditProfile extends StatefulWidget {
-  const EditProfile({required this.users, Key? key}) : super(key: key);
-  final Users users;
+  const EditProfile({Key? key});
 
   @override
   State<EditProfile> createState() => _EditProfileState();
 }
 
 class _EditProfileState extends State<EditProfile> {
-  final _formKey = GlobalKey<FormState>();
   bool isObscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       drawer: NavBarAdmin(),
       appBar: AppBar(
@@ -30,7 +25,7 @@ class _EditProfileState extends State<EditProfile> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => MainPageAdmin(),
+                builder: (context) => MainPage(),
               ),
             );
           },
@@ -67,8 +62,7 @@ class _EditProfileState extends State<EditProfile> {
                           shape: BoxShape.circle,
                           image: const DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage(
-                                  'assets/images/michael_scott_header.png'))),
+                              image: AssetImage('assets/images/user1.jpeg'))),
                     ),
                     Positioned(
                       bottom: 0,
@@ -90,83 +84,87 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
               const SizedBox(height: 80),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Form(
-                  key: _formKey,
-                  child: ListView(
-                    children: [
-                      TextFormField(
-                        initialValue: widget.users.username,
-                        decoration: const InputDecoration(labelText: 'User Name'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a username';
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          if (value != null) {
-                            widget.users.username = value;
-                          }
-                        },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: const Text(
+                      'Edit your profile here',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
                       ),
-                      TextFormField(
-                        initialValue: widget.users.email.toString(),
-                        decoration: const InputDecoration(labelText: 'Email'),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a email';
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {
-                          if (value != null) {
-                            widget.users.email = value;
-                          }
-                        },
-                      ),
-                      
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            FetchDataUsers.putUsers(widget.users);
-
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text('User Updated'),
-                                  content: const Text('The user has been updated successfully.'),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: const Text('OK'),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => const MainPageAdmin(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          }
-                        },
-                        child: const Text('Update User'),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  const Icon(Icons.arrow_downward),
+                ],
               ),
+              buildTextField("UserName", "Bernard1", false),
+              buildTextField("Email", "bernardapril00@gmail.com", false),
+              const SizedBox(height: 40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainPage(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Palette.pColor,
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    child: const Text(
+                      "Confirm",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 15,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildTextField(
+      String labelText, String placeholder, bool isPasswordTextField) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: TextField(
+        obscureText: isPasswordTextField ? isObscurePassword : false,
+        decoration: InputDecoration(
+            suffixIcon: isPasswordTextField
+                ? IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.grey,
+                    ),
+                  )
+                : null,
+            contentPadding: const EdgeInsets.only(bottom: 5),
+            labelText: labelText,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            hintText: placeholder,
+            hintStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
+            )),
       ),
     );
   }

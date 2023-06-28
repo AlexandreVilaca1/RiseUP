@@ -31,7 +31,7 @@ class _UkrayneMissionPage extends State<UkrayneMissionPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -41,7 +41,6 @@ class _UkrayneMissionPage extends State<UkrayneMissionPage> {
             );
           }
 
-          
           // ignore: unused_local_variable
           List<Missions> missions = snapshot.data!;
           return Scaffold(
@@ -68,8 +67,7 @@ class _UkrayneMissionPage extends State<UkrayneMissionPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Images(
-                      imagePath: 'assets/images/ukraine_war.png'),
+                  const Images(imagePath: 'assets/images/ukraine_war.png'),
                   const MissionTitleText(text: 'Ukrayne War'),
                   DescriptionTextWidget(
                     missionId: 2,

@@ -3,9 +3,6 @@ import 'package:rise_up2/Admin/main_page_admin.dart';
 import 'package:rise_up2/Admin/users.dart';
 import 'package:rise_up2/Pages/Authentication/request_login.dart';
 
-
-
-
 class NavBarAdmin extends StatelessWidget {
   const NavBarAdmin({super.key});
 
@@ -18,7 +15,7 @@ class NavBarAdmin extends StatelessWidget {
             accountName: const Text('Admin'),
             accountEmail: const Text('admin@gmail.com'),
             currentAccountPicture: CircleAvatar(
-              child: ClipOval(child: Image.asset('assets/images/michael_scott_header.png')),
+              child: ClipOval(child: Image.asset('assets/images/admin.jpeg')),
             ),
           ),
           ListTile(
@@ -30,13 +27,12 @@ class NavBarAdmin extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const MainPageAdmin(),
                 ),
-              ); 
+              );
             },
           ),
-          
           const Divider(
             color: Colors.grey,
-            thickness: 1, 
+            thickness: 1,
           ),
           ListTile(
             leading: const Icon(Icons.support_agent_outlined),
@@ -47,13 +43,12 @@ class NavBarAdmin extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const EditUsersPage(),
                 ),
-              ); 
+              );
             },
           ),
-          
           const Divider(
-            color: Colors.grey, 
-            thickness: 1, 
+            color: Colors.grey,
+            thickness: 1,
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
@@ -64,7 +59,7 @@ class NavBarAdmin extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => RequestLogin(),
                 ),
-              ); 
+              );
             },
           ),
           const Divider(

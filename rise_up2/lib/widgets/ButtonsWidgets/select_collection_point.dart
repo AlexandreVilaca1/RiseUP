@@ -6,9 +6,7 @@ import 'package:rise_up2/models/missions_collection_points.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
 
 class SelectCollectionPoint extends StatefulWidget {
-  
   const SelectCollectionPoint({Key? key}) : super(key: key);
-  
 
   @override
   State<SelectCollectionPoint> createState() => _SelectCollectionPointState();
@@ -38,10 +36,10 @@ class _SelectCollectionPointState extends State<SelectCollectionPoint> {
             );
           }
 
-          List<MissionsCollectionPoints> missionscollectionpoints = snapshot.data!;
+          List<MissionsCollectionPoints> missionscollectionpoints =
+              snapshot.data!;
           return Scaffold(
             drawer: const NavBar(),
-            
             appBar: const AppBarWidget(text: 'Collection Point'),
             body: ListView.separated(
               itemCount: missionscollectionpoints.length,
@@ -50,7 +48,8 @@ class _SelectCollectionPointState extends State<SelectCollectionPoint> {
                 color: Color.fromARGB(255, 198, 115, 115),
               ),
               itemBuilder: (BuildContext context, int index) {
-                MissionsCollectionPoints missioncollectionpoints = missionscollectionpoints[index];
+                MissionsCollectionPoints missioncollectionpoints =
+                    missionscollectionpoints[index];
                 return Container(
                   padding: EdgeInsets.all(16),
                   child: Column(
@@ -58,12 +57,14 @@ class _SelectCollectionPointState extends State<SelectCollectionPoint> {
                     children: [
                       Text(
                         'Mission:  ${missioncollectionpoints.missionName}',
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         'Collection Point:  ${missioncollectionpoints.collectionPointName}',
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
                       Text(
@@ -71,24 +72,20 @@ class _SelectCollectionPointState extends State<SelectCollectionPoint> {
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 8),
-
                       Text(
                         'District: ${missioncollectionpoints.district}',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
                         'Country: ${missioncollectionpoints.country}',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
                         'Postal Code: ${missioncollectionpoints.postalcode}',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
                         'Street: ${missioncollectionpoints.street}',
@@ -109,7 +106,6 @@ class _SelectCollectionPointState extends State<SelectCollectionPoint> {
                         'Closed Hour: ${missioncollectionpoints.endHour.toString()}',
                         style: const TextStyle(fontSize: 16),
                       ),
-                
                     ],
                   ),
                 );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Missions/main_page.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -26,13 +25,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Set your desired background color here
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/logo.png', // Replace 'assets/logo.png' with the path to your logo image file
+              'assets/images/logo.png',
               width: 400,
               height: 400,
             ),

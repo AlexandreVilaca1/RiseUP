@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
@@ -28,7 +27,6 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 
-  /// widget do circulo Imagem
   Widget buildImage() {
     final image = NetworkImage(imagePath);
 
@@ -49,7 +47,6 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 
-  /// widget para o icon editar na imagem
   Widget buildEditIcon(Color color) => const Icon(
         Icons.add_circle_rounded,
         color: Color.fromARGB(255, 168, 8, 8),

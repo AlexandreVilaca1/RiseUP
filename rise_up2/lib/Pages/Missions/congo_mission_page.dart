@@ -31,7 +31,7 @@ class _CongoMissionPage extends State<CongoMissionPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -67,8 +67,7 @@ class _CongoMissionPage extends State<CongoMissionPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Images(
-                      imagePath: 'assets/images/congo_floods.png'),
+                  const Images(imagePath: 'assets/images/congo_floods.png'),
                   const MissionTitleText(text: 'Congo floods'),
                   DescriptionTextWidget(
                     missionId: 3,

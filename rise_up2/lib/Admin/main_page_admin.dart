@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:rise_up2/Admin/add_mission.dart';
 import 'package:rise_up2/Admin/nav_bar_admin.dart';
 import 'package:rise_up2/Data/fetch_mission_data.dart';
+import 'package:rise_up2/Pages/Missions/congo_mission_page.dart';
+import 'package:rise_up2/Pages/Missions/cyclone_freddy_mission.dart';
+import 'package:rise_up2/Pages/Missions/cyclone_mocha_mission_page.dart';
+import 'package:rise_up2/Pages/Missions/syria_earthquake.dart';
+import 'package:rise_up2/Pages/Missions/ukrayne_mission.dart';
 import '../../models/missions.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
 import '../Pages/Missions/turkiye_mission_page.dart';
@@ -37,7 +43,7 @@ class _MainPageAdminState extends State<MainPageAdmin> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -72,7 +78,40 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                         ),
                       );
                     } else if (mission.idMission == 2) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UkrayneMissionPage(),
+                        ),
+                      );
                     } else if (mission.idMission == 3) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CongoMissionPage(),
+                        ),
+                      );
+                    } else if (mission.idMission == 4) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CycloneFreddyPage(),
+                        ),
+                      );
+                    } else if (mission.idMission == 5) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SyriaMissionPage(),
+                        ),
+                      );
+                    } else if (mission.idMission == 6) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CycloneMochaPage(),
+                        ),
+                      );
                     }
                   },
                   child: Container(
@@ -105,7 +144,18 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              // Handle edit button press
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      AddMissionPage(missions: mission),
+                                ),
+                              );
+                            },
+                            icon: Icon(Icons.add),
+                          ),
+                          IconButton(
+                            onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -136,18 +186,22 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                                         child: const Text('Delete'),
                                         onPressed: () {
                                           Navigator.of(context).pop();
-                                          FetchDataMissions.deleteMission(mission.idMission);
+                                          FetchDataMissions.deleteMission(
+                                              mission.idMission);
                                           showDialog(
                                             context: context,
                                             builder: (BuildContext context) {
                                               return AlertDialog(
-                                                title: const Text('Mission Deleted'),
-                                                content: const Text('The mission has been deleted successfully.'),
+                                                title: const Text(
+                                                    'Mission Deleted'),
+                                                content: const Text(
+                                                    'The mission has been deleted successfully.'),
                                                 actions: <Widget>[
                                                   TextButton(
                                                     child: const Text('OK'),
                                                     onPressed: () {
-                                                      Navigator.of(context).pop();
+                                                      Navigator.of(context)
+                                                          .pop();
                                                       Navigator.push(
                                                         context,
                                                         MaterialPageRoute(
@@ -177,6 +231,21 @@ class _MainPageAdminState extends State<MainPageAdmin> {
                 );
               },
             ),
+            // floatingActionButton: Container(
+            //   alignment: Alignment.bottomCenter,
+            //   padding: const EdgeInsets.only(bottom: 100),
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => AddMissionPage(missions: mission),
+            //         ),
+            //       );
+            //     },
+            //     child: const Text('Add a Mission'),
+            //   ),
+            // ),
           );
         },
       ),

@@ -5,25 +5,24 @@ import '../Navegation_Bar/nav_bar.dart';
 import 'login.dart';
 import 'regist.dart';
 
-// ignore: use_key_in_widget_constructors
 class RequestLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:  NavBar(),
+      drawer: NavBar(),
       appBar: const AppBarWidget(text: 'Rise Up'),
       body: Container(
         padding: const EdgeInsets.only(top: 60, left: 40, right: 40),
         color: Colors.white,
         child: ListView(
           children: <Widget>[
-            //----------------------------------------Rise Up
+            //----------------------------------------Rise Up image
             SizedBox(
               width: 128,
               height: 128,
               child: Image.asset('assets/images/letra.png'),
             ),
-            //----------------------------------------Texto baixo do rise Up
+            //----------------------------------------Subtitle
             const Text(
               'If you want to help, please do the login :)',
               textAlign: TextAlign.center,

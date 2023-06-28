@@ -31,7 +31,7 @@ class _SyriaMissionPage extends State<SyriaMissionPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -67,8 +67,7 @@ class _SyriaMissionPage extends State<SyriaMissionPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Images(
-                      imagePath: 'assets/images/syria_earthquake.png'),
+                  const Images(imagePath: 'assets/images/syria_earthquake.png'),
                   const MissionTitleText(text: 'Syria earthquake'),
                   DescriptionTextWidget(
                     missionId: 5,

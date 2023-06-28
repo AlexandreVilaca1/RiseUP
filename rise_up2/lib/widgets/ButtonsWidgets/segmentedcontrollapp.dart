@@ -40,7 +40,7 @@ class _SegmentedControlApp extends State<SegmentedControlApp> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -112,7 +112,7 @@ class _SegmentedControlApp extends State<SegmentedControlApp> {
                                           _checkedList[i] = value!;
                                         });
                                       },
-                                    ),                        
+                                    ),
                                   ],
                                 ),
                               ),

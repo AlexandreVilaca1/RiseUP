@@ -19,7 +19,7 @@ class Images extends StatelessWidget {
           height: 200,
           fit: BoxFit.fitWidth,
         ),
-    ),
+      ),
     );
   }
 }

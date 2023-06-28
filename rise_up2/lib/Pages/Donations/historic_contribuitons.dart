@@ -6,12 +6,11 @@ import 'package:rise_up2/models/monetary_donations.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
 
 class HistoricContribuitonsPage extends StatefulWidget {
-  
   const HistoricContribuitonsPage({Key? key}) : super(key: key);
-  
 
   @override
-  State<HistoricContribuitonsPage> createState() => _HistoricContribuitonsPageState();
+  State<HistoricContribuitonsPage> createState() =>
+      _HistoricContribuitonsPageState();
 }
 
 class _HistoricContribuitonsPageState extends State<HistoricContribuitonsPage> {
@@ -41,7 +40,6 @@ class _HistoricContribuitonsPageState extends State<HistoricContribuitonsPage> {
           List<MonetaryDonations> monetaryDonations = snapshot.data!;
           return Scaffold(
             drawer: const NavBar(),
-            
             appBar: const AppBarWidget(text: 'Historic Contribuitons'),
             body: ListView.separated(
               itemCount: monetaryDonations.length,
@@ -57,41 +55,39 @@ class _HistoricContribuitonsPageState extends State<HistoricContribuitonsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Mission:  ${monetaryDonation.missionName}',
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        'Mission: ${monetaryDonation.missionName}',
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Association Name:  ${monetaryDonation.associationName}',
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        'Association Name: ${monetaryDonation.associationName}',
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Association Base District: : ${monetaryDonation.baseDistrict}',
+                        'Association Base District: ${monetaryDonation.baseDistrict}',
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 8),
-
                       Text(
                         'Association Base Country: : ${monetaryDonation.baseCountry}',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
                         'Association Iban: ${monetaryDonation.iban}',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
-                        'Value Donated: ${monetaryDonation.monetaryValue}',
+                        'Value Donated: ${monetaryDonation.monetaryValue} €',
                         style: const TextStyle(fontSize: 16),
                       ),
-
                       const SizedBox(height: 8),
                       Text(
-                        'Payment Method used: ${monetaryDonation.paymentMethod}',
+                        'Payment Method Used: ${monetaryDonation.paymentMethod}',
                         style: const TextStyle(fontSize: 16),
                       ),
                     ],

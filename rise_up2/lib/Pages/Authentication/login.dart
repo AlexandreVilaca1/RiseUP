@@ -3,7 +3,6 @@ import 'package:rise_up2/Pages/Authentication/recover_passord.dart';
 import 'package:rise_up2/Pages/Authentication/request_login.dart';
 import 'package:rise_up2/Pages/Donations/monetary_donation.dart';
 
-// ignore: use_key_in_widget_constructors
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,18 +31,15 @@ class LoginPage extends StatelessWidget {
         color: Colors.white,
         child: ListView(
           children: <Widget>[
-            //----------------------------------------Texto baixo do rise Up
             const Text(
               'LOGIN',
               textAlign: TextAlign.center,
               style: TextStyle(height: 5, fontSize: 50),
             ),
-            //----------------------------------------Username
             const SizedBox(
               height: 20,
             ),
             TextFormField(
-              // autofocus: true,
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 labelText: "Username",
@@ -55,12 +51,12 @@ class LoginPage extends StatelessWidget {
               ),
               style: const TextStyle(fontSize: 20),
             ),
-            //----------------------------------------password
+            //password
             const SizedBox(
               height: 10,
             ),
             TextFormField(
-              // autofocus: true,
+              //----------------------------------------Password
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: const InputDecoration(
@@ -100,7 +96,7 @@ class LoginPage extends StatelessWidget {
               height: 60,
               padding: const EdgeInsets.only(left: 30, right: 30),
               alignment: Alignment.centerLeft,
-              decoration:  const BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(3),
                 ),

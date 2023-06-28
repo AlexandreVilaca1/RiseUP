@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:rise_up2/models/users.dart';
 
 class FetchDataUsers {
+  //GET users
   static Future<List<Users>> getUsers() async {
     Iterable iterable;
     List<Users> users;
@@ -15,6 +16,7 @@ class FetchDataUsers {
     return users;
   }
 
+  //PUT Users
   static Future<void> putUsers(Users users) async {
     const apiUrl = 'http://10.0.2.2:7014/api/Users/';
     final updateUrl = apiUrl + users.idUser.toString();
@@ -38,6 +40,7 @@ class FetchDataUsers {
     }
   }
 
+  //DELETE Users
   static Future<void> deleteUser(int idUser) async {
     const apiUrl = 'http://10.0.2.2:7014/api/Users/';
     final deleteUrl = apiUrl + idUser.toString();

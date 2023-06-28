@@ -30,7 +30,6 @@ class RegistPage extends StatelessWidget {
         color: Colors.white,
         child: ListView(
           children: <Widget>[
-            //----------------------------------------Texto - Registo
             const Text(
               'Regist',
               textAlign: TextAlign.center,
@@ -40,10 +39,9 @@ class RegistPage extends StatelessWidget {
               height: 20,
             ),
             TextFormField(
-              // autofocus: true,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
-                labelText: "Name",
+                labelText: "User Name",
                 labelStyle: TextStyle(
                   color: Colors.black38,
                   fontWeight: FontWeight.w400,
@@ -58,7 +56,6 @@ class RegistPage extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
-              // autofocus: true,
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 labelText: "E-mail",
@@ -76,7 +73,6 @@ class RegistPage extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
-              // autofocus: true,
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: const InputDecoration(
@@ -89,7 +85,6 @@ class RegistPage extends StatelessWidget {
               ),
               style: const TextStyle(fontSize: 20),
             ),
-            //----------------------------------------Botão Cadastrar
             const SizedBox(
               height: 40,
             ),
@@ -136,7 +131,6 @@ class RegistPage extends StatelessWidget {
                 ),
               ),
             ),
-            //----------------------------------------Botão Cancelar
             const SizedBox(
               height: 40,
             ),

@@ -1,5 +1,3 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/missions.dart';
@@ -8,7 +6,8 @@ class DescriptionTextWidget extends StatelessWidget {
   final int missionId;
   final Future<List<Missions>> missionList;
 
-  DescriptionTextWidget({Key? key, required this.missionId, required this.missionList})
+  DescriptionTextWidget(
+      {Key? key, required this.missionId, required this.missionList})
       : super(key: key);
 
   @override
@@ -31,7 +30,8 @@ class DescriptionTextWidget extends StatelessWidget {
         }
 
         List<Missions> missions = snapshot.data!;
-        Missions mission = missions.firstWhere((mission) => mission.idMission == missionId);
+        Missions mission =
+            missions.firstWhere((mission) => mission.idMission == missionId);
 
         return Container(
           alignment: Alignment.centerLeft,

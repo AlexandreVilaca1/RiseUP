@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:rise_up2/Admin/main_page_admin.dart';
+import 'package:rise_up2/Pages/Profile/edit_profile.dart';
 import '../Donations/historic_contribuitons.dart';
 import '../Missions/main_page.dart';
 import '../Support/support_page.dart';
 
-
-
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     // final Users users;
@@ -31,30 +30,30 @@ class NavBar extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const MainPage(),
                 ),
-              ); 
+              );
             },
           ),
           const Divider(
             color: Colors.grey,
             thickness: 1,
           ),
-          const ListTile(
-            leading:  Icon(Icons.person),
-            title:  Text('Profile'),
-          //   onTap: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //         builder: (context) =>  HistoricContribuitonsPage(),
-          //       ),
-          //     ); 
-          //   },
-           ),
-          const Divider(
-            color: Colors.grey, 
-            thickness: 1, 
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('Profile'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditProfile(),
+                ),
+              );
+            },
           ),
-           ListTile(
+          const Divider(
+            color: Colors.grey,
+            thickness: 1,
+          ),
+          ListTile(
             leading: const Icon(Icons.history_edu),
             title: const Text('Historic Contribuitons'),
             onTap: () {
@@ -63,7 +62,7 @@ class NavBar extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const HistoricContribuitonsPage(),
                 ),
-              ); 
+              );
             },
           ),
           const Divider(
@@ -79,7 +78,7 @@ class NavBar extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const SupportPage(),
                 ),
-              ); 
+              );
             },
           ),
           const Divider(
@@ -87,12 +86,12 @@ class NavBar extends StatelessWidget {
             thickness: 1,
           ),
           const ListTile(
-            leading:  Icon(Icons.exit_to_app),
-            title:  Text('Exit'),
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Exit'),
           ),
           const Divider(
-            color: Colors.grey, 
-            thickness: 1, 
+            color: Colors.grey,
+            thickness: 1,
           ),
           ListTile(
             leading: const Icon(Icons.support_agent_outlined),
@@ -103,12 +102,12 @@ class NavBar extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const MainPageAdmin(),
                 ),
-              ); 
+              );
             },
           ),
           const Divider(
-            color: Colors.grey, 
-            thickness: 1, 
+            color: Colors.grey,
+            thickness: 1,
           ),
           const Column(
             children: [

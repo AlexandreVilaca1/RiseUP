@@ -30,18 +30,15 @@ class RecoverPasswordPage extends StatelessWidget {
         color: Colors.white,
         child: ListView(
           children: <Widget>[
-            //----------------------------------------Texto Pass
             const Text(
               'RECOVER PASSWORD',
               textAlign: TextAlign.center,
               style: TextStyle(height: 0, fontSize: 40),
             ),
-            //----------------------------------------New Password
             const SizedBox(
               height: 60,
             ),
             TextFormField(
-              // autofocus: true,
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 labelText: "E-mail",
@@ -53,7 +50,6 @@ class RecoverPasswordPage extends StatelessWidget {
               ),
               style: const TextStyle(fontSize: 20),
             ),
-            //----------------------------------------Login
             const SizedBox(
               height: 40,
             ),

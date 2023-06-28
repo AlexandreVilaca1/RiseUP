@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:rise_up2/Data/fetch_users.dart';
 import 'package:rise_up2/models/users.dart';
 import '../../widgets/AppBarWidget/app_bar_nav_bar.dart';
-import 'main_page_admin.dart';
 import 'nav_bar_admin.dart';
 
 class EditUsersPage extends StatefulWidget {
@@ -35,7 +34,7 @@ class _EditUsersPageState extends State<EditUsersPage> {
               child: CupertinoActivityIndicator(),
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error); // Print error details
+            print(snapshot.error);
             return const Center(
               child: Text('An error occurred.'),
             );
@@ -58,96 +57,96 @@ class _EditUsersPageState extends State<EditUsersPage> {
               itemBuilder: (BuildContext context, int index) {
                 Users user = users[index];
                 return GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.only(top: 2),
-                  child: ListTile(
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(70.0),
-                      child: Image.asset(
-                        userImagePaths[user.idUser] ??
-                            'assets/images/user1.jpeg',
-                        width: 70,
-                        height: 80,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    title: Text(
-                      user.username,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Email: ${user.email}'),
-                        Text('Password: ${user.password}')
-                      ],
-                    ),
-                    trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Text('Delete User'),
-                                    content: const Text(
-                                        'Are you sure you want to delete this user?'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        child: const Text('Cancel'),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                      TextButton(
-                                        child: const Text('Delete'),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                          FetchDataUsers.deleteUser(user.idUser);
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                title: const Text('User Deleted'),
-                                                content: const Text('The user has been deleted successfully.'),
-                                                actions: <Widget>[
-                                                  TextButton(
-                                                    child: const Text('OK'),
-                                                    onPressed: () {
-                                                      Navigator.of(context).pop();
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const MainPageAdmin(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            icon: const Icon(Icons.delete),
+                    child: Container(
+                        margin: const EdgeInsets.only(top: 2),
+                        child: ListTile(
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(70.0),
+                            child: Image.asset(
+                              userImagePaths[user.idUser] ??
+                                  'assets/images/user1.jpeg',
+                              width: 70,
+                              height: 80,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ]
-                  ),
-                  )
-                )
-                );
+                          title: Text(
+                            user.username,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Email: ${user.email}'),
+                              Text('Password: ${user.password}')
+                            ],
+                          ),
+                          trailing:
+                              Row(mainAxisSize: MainAxisSize.min, children: [
+                            IconButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: const Text('Delete User'),
+                                      content: const Text(
+                                          'Are you sure you want to delete this user?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child: const Text('Cancel'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: const Text('Delete'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                            FetchDataUsers.deleteUser(
+                                                user.idUser);
+                                            showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: const Text(
+                                                      'User Deleted'),
+                                                  content: const Text(
+                                                      'The user has been deleted successfully.'),
+                                                  actions: <Widget>[
+                                                    TextButton(
+                                                      child: const Text('OK'),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const EditUsersPage(),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              icon: const Icon(Icons.delete),
+                            ),
+                          ]),
+                        )));
               },
             ),
           );

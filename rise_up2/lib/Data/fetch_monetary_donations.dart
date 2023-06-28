@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 class FetchDataMonetaryDonations {
+  //GET MonetaryDonations
   static Future<List<MonetaryDonations>> getMonetaryDonations() async {
     Iterable iterable;
     List<MonetaryDonations> monetaryDonations;
